@@ -1,0 +1,1226 @@
+<html lang="en" class="antialiased"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niharika Singh - QA / Testing Intern</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style class="">
+/*
+Sequence animation intro. Usage:
+1) Insert this code in the <head>
+2) Add to Tailwind Classes: [animation:animationIn_0.8s_ease-out_0.1s_both]
+*/
+@keyframes animationIn {
+0% {
+opacity: 0;
+transform: translateY(30px);
+filter: blur(8px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+filter: blur(0px);
+}
+}
+</style>
+<script>
+/*
+Sequence animation on scroll when visible. Requires Animation Keyframe. Usage:
+1) Insert this code in the <head> along with the Animation Keyframe code.
+2) Add to Tailwind Classes: [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll
+*/
+(function () {
+// Inject CSS for paused/running states
+const style = document.createElement("style");
+style.textContent = `
+/* Default: paused */
+.animate-on-scroll { animation-play-state: paused !important; }
+/* Activated by JS */
+.animate-on-scroll.animate { animation-play-state: running !important; }
+`;
+document.head.appendChild(style);
+const once = true;
+if (!window.__inViewIO) {
+window.__inViewIO = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+entry.target.classList.add("animate");
+if (once) window.__inViewIO.unobserve(entry.target);
+}
+});
+}, { threshold: 0.2, rootMargin: "0px 0px -10% 0px" });
+}
+window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+document.querySelectorAll(selector).forEach((el) => {
+window.__inViewIO.observe(el); // observing twice is a no-op
+});
+};
+document.addEventListener("DOMContentLoaded", () => initInViewAnimations());
+})();
+</script>
+<style>
+/* Hide global scrollbars */
+html, body {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+display: none; /* Chrome, Safari and Opera */
+}
+.glass-card {
+background: rgba(255, 255, 255, 0.03);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow:
+0 30px 60px -15px rgba(0, 0, 0, 0.8),
+inset 0 1px 1px rgba(255, 255, 255, 0.15),
+inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+border-radius: 1.5rem;
+}
+.glass-highlight {
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.05) 100%);
+border-radius: 1.5rem;
+z-index: 10;
+pointer-events: none;
+}
+/* Custom Scrollbar for specific elements (if needed) */
+.dash-scroll::-webkit-scrollbar {
+display: none;
+}
+.dash-scroll {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+</style>
+<meta name="aura-font-heading-class" content="font-geist">
+<meta name="aura-font-body-class" content="font-sans">
+<meta name="aura-font-heading-label" content="Geist">
+<meta name="aura-font-body-label" content="Inter">
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
+.font-geist { font-family: 'Geist', sans-serif !important; }
+</style>
+</head>
+  <body class="min-h-screen overflow-x-hidden selection:bg-white/10 font-sans bg-[#09090b] relative text-white" style="font-family: 'Inter', sans-serif;">
+    <!-- Background (component) added by Aura -->
+    <div class="aura-background-component fixed top-0 w-full h-screen -z-10 brightness-75" data-alpha-mask="80" style="; mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
+      <div class="aura-background-component top-0 w-full -z-10 absolute h-full">
+        <div data-us-project="uFY4IYPs2LU8fWm96Im2" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+        <script type="text/javascript">
+          !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+        </script>
+      </div>
+    </div>
+
+    <!-- Background Glow Effects -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-[60vh] bg-gradient-to-b via-zinc-500/5 to-transparent z-10 from-zinc-400/30"></div>
+      <div class="absolute top-[10%] left-1/2 -translate-x-1/2 w-48 h-56 blur-[100px] rounded-full z-10 bg-zinc-400/10"></div>
+      <div class="absolute -top-[50vh] w-[150vw] h-[100vh] rounded-[100%] border border-zinc-500/10 shadow-[0_0_120px_rgba(161,161,170,0.1)]"></div>
+      <div class="absolute top-[20vh] w-[120vw] h-[120vh] rounded-[100%] border shadow-[0_0_80px_rgba(161,161,170,0.05)] border-zinc-600/5"></div>
+      <div class="absolute top-[30%] left-[15%] w-64 h-64 bg-zinc-500/5 blur-[80px] rounded-full"></div>
+      <div class="absolute bottom-[20%] right-[20%] w-80 h-80 blur-[100px] rounded-full bg-zinc-400/5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed flex md:px-12 z-50 pointer-events-auto pt-6 pr-6 pb-6 pl-6 top-0 right-0 left-0 items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 text-xl tracking-tight font-medium hover:opacity-80 transition-opacity font-geist text-white">
+        <i data-lucide="play" class="rotate-90 w-5 h-5 flex items-center justify-center text-white" stroke-width="1.5" fill="currentColor"></i>Niharika</a>
+
+      <nav class="hidden md:flex items-center gap-10 text-base font-normal text-zinc-400">
+        <a href="#skills" class="flex items-center gap-1.5 transition-colors group hover:text-zinc-200">Skills<i data-lucide="chevron-down" class="w-4 h-4 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity" stroke-width="1.5"></i>
+        </a>
+        <a href="#projects" class="flex items-center gap-1.5 transition-colors group hover:text-zinc-200">Projects<i data-lucide="chevron-down" class="w-4 h-4 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity" stroke-width="1.5"></i>
+        </a>
+        <a href="#certifications" class="flex items-center gap-1.5 transition-colors group hover:text-zinc-200">Certifications<i data-lucide="chevron-down" class="w-4 h-4 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity" stroke-width="1.5"></i>
+        </a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-base font-normal transition-colors px-4 py-2 backdrop-blur-sm border rounded-full text-zinc-300 hover:text-white bg-black/50 border-zinc-700/50">Contact</a>
+
+        <!-- Animated Hover CTA Nav -->
+        <button class="group relative inline-flex min-w-[120px] cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[2px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden font-normal tracking-tight bg-[#09090b]/80 backdrop-blur-md border rounded-full px-5 py-2.5 items-center justify-center text-sm hover:text-white text-zinc-300 border-zinc-700/80">
+          <!-- Original text (slides down on hover) -->
+          <span class="relative z-10 flex items-center gap-2 rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md">Hire Me<i data-lucide="arrow-right" class="w-4 h-4 flex items-center justify-center" stroke-width="1.5"></i>
+          </span>
+
+          <!-- Clone text (slides in from top on hover) -->
+          <span class="absolute inset-0 z-10 flex items-center justify-center gap-2 transition-all duration-300 ease-in-out transform -translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none opacity-0 rounded-full blur-md">Hire Me<i data-lucide="arrow-right" class="w-4 h-4 flex items-center justify-center" stroke-width="1.5"></i>
+          </span>
+
+          <!-- bottom light gradient line on hover -->
+          <span aria-hidden="true" class="absolute bottom-0 left-1/2 h-[1px] w-[70%] -translate-x-1/2 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] opacity-0 group-hover:opacity-80 bg-gradient-to-r from-transparent to-transparent rounded-full blur-[2px] via-neutral-200"></span>
+
+          <!-- bottom light gradient on hover -->
+          <span aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[100%] opacity-0 group-hover:opacity-60 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] pointer-events-none bg-gradient-to-t to-transparent rounded-full from-white/20 via-white/10"></span>
+        </button>
+      </div>
+    </header>
+    <main class="z-20 container md:px-12 flex flex-col md:pb-16 pointer-events-none mr-auto ml-auto pt-32 pr-6 pb-10 pl-6 relative justify-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 pointer-events-auto min-h-[70vh] gap-x-16 gap-y-16 items-center">
+        <!-- Left Side -->
+        <div class="flex flex-col gap-10 lg:pr-8 text-left gap-x-10 gap-y-10">
+          <h1 class="sm:text-6xl md:text-7xl leading-[1.1] [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll animate text-5xl font-medium tracking-tight font-geist text-white/95">Niharika Singh<br>QA / Testing Intern<br>
+            <span class="text-zinc-500">Bug Hunter</span>
+          </h1>
+
+          <div class="flex flex-wrap items-center gap-4 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll animate">
+            <!-- Animated Hover CTA Hero -->
+            <button class="group relative inline-flex min-w-[120px] cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[3px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden font-normal tracking-tight border rounded-full px-8 py-3.5 items-center justify-center text-lg hover:text-white text-zinc-300 bg-zinc-900 border-zinc-700/80">
+              <!-- Original text (slides down on hover) -->
+              <span class="relative z-10 flex items-center gap-2 rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md">Hire Me<i data-lucide="arrow-right" class="w-5 h-5 flex items-center justify-center" stroke-width="1.5"></i>
+              </span>
+
+              <!-- Clone text (slides in from top on hover) -->
+              <span class="absolute inset-0 z-10 flex items-center justify-center gap-2 transition-all duration-300 ease-in-out transform -translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none font-medium opacity-0 rounded-full blur-md">Hire Me<i data-lucide="arrow-right" class="flex items-center justify-center w-5 h-5" stroke-width="1.5"></i>
+              </span>
+
+              <!-- bottom light gradient line on hover -->
+              <span aria-hidden="true" class="absolute bottom-0 left-1/2 h-[1px] w-[70%] -translate-x-1/2 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] opacity-0 group-hover:opacity-80 bg-gradient-to-r from-transparent to-transparent rounded-full blur-[2px] via-neutral-200"></span>
+
+              <!-- bottom light gradient on hover -->
+              <span aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[100%] opacity-0 group-hover:opacity-60 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] pointer-events-none bg-gradient-to-t to-transparent rounded-full from-white/20 via-white/10"></span>
+            </button>
+
+            <a href="Niharika_Singh_Resume.pdf" download="Niharika_Singh_Resume.pdf" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full border bg-transparent text-lg font-normal transition-colors backdrop-blur-sm border-zinc-800 text-zinc-300 hover:bg-zinc-800/50 hover:text-white">Download Resume</a>
+          </div>
+
+          <!-- Features List -->
+          <div class="flex flex-col gap-5 pt-4 [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate">
+            <div class="flex items-start gap-4 text-lg font-normal group text-zinc-400">
+              <i data-lucide="check-circle-2" class="w-6 h-6 flex items-center justify-center text-zinc-500 mt-0.5 group-hover:text-zinc-300 transition-colors flex-shrink-0" stroke-width="1.5"></i>
+              <span>
+                <span class="font-medium text-zinc-200">Manual Testing :</span>test cases, execution, regression</span>
+            </div>
+            <div class="flex items-start gap-4 text-lg font-normal group text-zinc-400">
+              <i data-lucide="check-circle-2" class="w-6 h-6 flex items-center justify-center text-zinc-500 mt-0.5 group-hover:text-zinc-300 transition-colors flex-shrink-0" stroke-width="1.5"></i>
+              <span class="">
+                <span class="font-medium text-zinc-200">Bug Reporting :</span>clear, reproducible defect reports</span>
+            </div>
+            <div class="flex items-start gap-4 text-lg font-normal group text-zinc-400">
+              <i data-lucide="check-circle-2" class="w-6 h-6 flex items-center justify-center text-zinc-500 mt-0.5 group-hover:text-zinc-300 transition-colors flex-shrink-0" stroke-width="1.5"></i>
+              <span class="">
+                <span class="font-medium text-zinc-200">SQL &amp; Python :</span>data validation and test scripts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Floating Image Cluster -->
+        <div class="lg:h-[650px] hidden md:block [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll animate w-full h-[500px] z-50 pointer-events-auto relative">
+          <div class="glass-card absolute top-[5%] left-[5%] w-40 lg:w-48 aspect-square rotate-[-4deg] p-2 md:p-3 z-[61] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5b2b94ae-4a0b-458d-b838-58b0fb5fadfd_800w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="bg-gradient-to-tr to-transparent absolute top-0 right-0 bottom-0 left-0 from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card absolute top-[15%] right-[5%] w-48 lg:w-56 aspect-[4/3] rotate-[3deg] p-2 md:p-3 z-[62] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/98ceb9e8-e614-438f-b0b6-6ea9a4cd962a_800w.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card lg:w-44 aspect-[3/4] md:p-3 w-36 z-[63] pt-2 pr-2 pb-2 pl-2 absolute top-[40%] left-[0%] rotate-[-2deg] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cce9b24e-35c2-4401-966f-6862ca3cbe67_320w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card absolute top-[35%] right-[15%] w-52 lg:w-64 aspect-square rotate-[2deg] p-2 md:p-3 z-[64] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/84c1c812-11be-4bbf-980f-9c90b7a0d779_800w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card absolute bottom-[5%] left-[20%] w-44 lg:w-52 aspect-square rotate-[4deg] p-2 md:p-3 z-[62] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7f606005-ba8e-4906-8403-5200e9723d9f_800w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card absolute bottom-[0%] right-[10%] w-36 lg:w-44 aspect-[4/3] rotate-[-3deg] p-2 md:p-3 z-[61] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6d1c6740-1f50-4f43-bbb0-8bfb2f9620bd_320w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Main Hero Content -->
+
+    <!-- Enterprise Security & Scale Features Section -->
+    <section id="skills" class="z-20 container md:px-12 pointer-events-auto mr-auto ml-auto pt-16 pr-6 pb-16 pl-6 relative">
+      <style>
+        @keyframes lumina-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        @keyframes lumina-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        @keyframes lumina-scan {
+            0% { top: 0; opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        @keyframes lumina-shine {
+            0% { transform: translateX(-100%); }
+            20%, 100% { transform: translateX(100%); }
+        }
+        @keyframes lumina-highlight {
+            0%, 100% { background-color: transparent; }
+            50% { background-color: rgba(255, 255, 255, 0.04); }
+        }
+        @keyframes lumina-scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        @keyframes lumina-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        @keyframes lumina-load {
+            0% { width: 10%; }
+            50% { width: 100%; }
+            100% { width: 10%; }
+        }
+      </style>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- SOC 2 Compliance -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll border-white/5 animate">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Audit Dashboard -->
+            <div class="relative w-[85%] max-w-[260px] bg-[#09090b] border rounded-xl p-4 shadow-2xl z-10 flex flex-col border-white/10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate">
+              <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400" stroke-width="1.5"></i>
+                  <span class="text-xs font-medium text-zinc-200">Test Execution</span>
+                </div>
+                <span class="text-[10px] px-1.5 py-0.5 rounded border font-medium bg-emerald-400/10 text-emerald-400 border-emerald-400/20 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate">
+                  Passed
+                </span>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-medium text-zinc-400">Test Case Design</span>
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0s" stroke-width="2"></i>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-medium text-zinc-400">Smoke Testing</span>
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0.5s" stroke-width="2"></i>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-medium text-zinc-400">Regression Checks</span>
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1s" stroke-width="2"></i>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-medium text-zinc-400">Boundary Value Checks</span>
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1.5s" stroke-width="2"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">Manual Testing</h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">Executing test cases step by step, comparing expected and actual results, and logging every defect.</p>
+          </div>
+        </div>
+
+        <!-- SSO and Domain Capture -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll border-white/5 animate">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Login Routing -->
+            <div class="relative w-[85%] max-w-[260px] flex flex-col gap-2 z-10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0.5s">
+              <!-- Login Box -->
+              <div class="bg-[#09090b] border rounded-xl p-3.5 shadow-2xl relative border-white/10">
+                <div class="flex items-center gap-2 mb-3">
+                  <div class="w-5 h-5 rounded flex items-center justify-center bg-zinc-800">
+                    <i data-lucide="building" class="w-3 h-3 text-zinc-300" stroke-width="1.5"></i>
+                  </div>
+                  <span class="text-[11px] font-medium text-zinc-200">Login Page Test</span>
+                </div>
+                <div class="bg-[#131316] border rounded-lg p-2.5 flex items-center justify-between text-xs border-white/5">
+                  <span class="font-medium text-zinc-300">SELECT * FROM records;</span>
+                  <i data-lucide="loader-2" class="w-3.5 h-3.5 text-zinc-500 animate-spin" stroke-width="2"></i>
+                </div>
+              </div>
+
+              <!-- Routing Path -->
+              <div class="flex flex-col items-center justify-center h-4 relative overflow-hidden">
+                <div class="absolute w-px h-full bg-gradient-to-b to-transparent from-white/20"></div>
+                <div class="absolute w-2 h-2 rounded-full border bg-[#09090b] shadow-[0_0_8px_rgba(255,255,255,0.3)] border-white/20 [animation:lumina-scan_2s_linear_infinite] animate-on-scroll animate"></div>
+              </div>
+
+              <!-- IDP Box -->
+              <div class="bg-[#09090b] border rounded-xl p-3 shadow-2xl flex items-center gap-3 w-4/5 mx-auto relative overflow-hidden border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent [animation:lumina-shine_3s_ease-in-out_infinite] animate-on-scroll animate"></div>
+                <div class="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-400" stroke-width="1.5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[9px] text-zinc-500 uppercase tracking-widest font-medium">Verifying</span>
+                  <span class="text-[11px] font-medium text-zinc-200">Dashboard loads</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">Functional Testing</h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">Verifying that every feature works as expected, from login flows to record management.</p>
+          </div>
+        </div>
+
+        <!-- Fine-Grained Permissions -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll border-white/5 animate">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Permissions Matrix -->
+            <div class="relative w-[90%] max-w-[280px] bg-[#09090b] border rounded-xl overflow-hidden shadow-2xl z-10 flex flex-col border-white/10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1s">
+              <div class="grid grid-cols-5 gap-2 p-3 border-b bg-white/[0.02] border-white/5">
+                <div class="col-span-2 text-[10px] font-medium text-zinc-500 uppercase tracking-wider">Module</div>
+                <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider text-center">Func</div>
+                <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider text-center">UI</div>
+                <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider text-center">Resp</div>
+              </div>
+              <div class="flex flex-col p-2 gap-1 bg-[#0e0e11]">
+                <!-- Row 1 -->
+                <div class="grid grid-cols-5 gap-2 p-2 items-center rounded-lg cursor-pointer [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0s">
+                  <div class="col-span-2 flex items-center gap-2">
+                    <i data-lucide="database" class="w-3.5 h-3.5 text-zinc-400" stroke-width="1.5"></i>
+                    <span class="text-[11px] font-medium truncate text-zinc-300">Login</span>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-[#131316] border-white/10"></div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-[#131316] border-white/10"></div>
+                  </div>
+                </div>
+                <!-- Row 2 -->
+                <div class="grid grid-cols-5 gap-2 p-2 items-center rounded-lg cursor-pointer [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1s">
+                  <div class="col-span-2 flex items-center gap-2">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-zinc-400" stroke-width="1.5"></i>
+                    <span class="text-[11px] font-medium truncate text-zinc-300">Search</span>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center"><div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10"><i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i></div></div>
+                </div>
+                <!-- Row 3 -->
+                <div class="grid grid-cols-5 gap-2 p-2 items-center rounded-lg cursor-pointer [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 2s">
+                  <div class="col-span-2 flex items-center gap-2">
+                    <i data-lucide="credit-card" class="w-3.5 h-3.5 text-zinc-400" stroke-width="1.5"></i>
+                    <span class="text-[11px] font-medium truncate text-zinc-300">Mobile View</span>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">Test Coverage Matrix</h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">Tracking which modules are covered across functional, UI, and responsive testing.</p>
+          </div>
+        </div>
+
+        <!-- Role-Based Access Control -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll border-white/5 animate">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Role Assignments -->
+            <div class="relative w-[90%] max-w-[280px] bg-[#09090b] border rounded-xl p-3 shadow-2xl z-10 flex flex-col gap-4 border-white/10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1.5s">
+              <div class="flex items-center gap-3 p-2 bg-white/[0.03] border rounded-lg border-white/5">
+                <div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/20 flex items-center justify-center font-medium text-xs shadow-inner text-purple-400">BG</div>
+                <div class="flex flex-col">
+                  <span class="text-[12px] font-medium text-zinc-200">Login button not working</span>
+                  <span class="text-[10px] text-zinc-500">BUG-101 · Open</span>
+                </div>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider px-1">Labels</div>
+                <div class="flex flex-wrap gap-2">
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-md text-[11px] font-medium shadow-sm text-blue-400 [animation:lumina-scale_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0s">
+                    <i data-lucide="shield" class="w-3 h-3" stroke-width="1.5"></i>High Severity<i data-lucide="x" class="w-3 h-3 ml-1 opacity-60 hover:opacity-100 cursor-pointer transition-opacity"></i>
+                  </div>
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 border rounded-md text-[11px] font-medium shadow-sm bg-white/5 border-white/10 text-zinc-300 [animation:lumina-scale_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1.5s">
+                    <i data-lucide="edit-2" class="w-3 h-3 text-zinc-400" stroke-width="1.5"></i>Reproducible<i data-lucide="x" class="w-3 h-3 ml-1 opacity-60 hover:opacity-100 cursor-pointer transition-opacity"></i>
+                  </div>
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 border border-dashed rounded-md text-[11px] font-medium text-zinc-500 cursor-pointer transition-colors bg-[#0e0e11] border-white/20 hover:text-zinc-300 hover:border-white/40">
+                    <i data-lucide="plus" class="w-3 h-3" stroke-width="2"></i>Add Label</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">Defect Reporting</h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">Writing clear bug reports with steps to reproduce, expected vs actual result, and severity.</p>
+          </div>
+        </div>
+
+        <!-- Workspaces Per Organization -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll border-white/5 animate">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Workspace Switcher -->
+            <div class="relative w-[85%] max-w-[240px] z-10 flex flex-col [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 2s">
+              <!-- Dropdown Trigger -->
+              <div class="bg-[#09090b] border rounded-xl p-2.5 flex items-center justify-between shadow-lg mb-2 relative z-20 transition-colors cursor-pointer border-white/10 hover:border-white/20">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-500 flex items-center justify-center text-[11px] font-bold shadow-inner to-purple-600 text-white">F</div>
+                  <span class="text-xs font-medium text-zinc-200">Functional</span>
+                </div>
+                <i data-lucide="chevrons-up-down" class="w-3.5 h-3.5 text-zinc-500" stroke-width="1.5"></i>
+              </div>
+              <!-- Dropdown Menu -->
+              <div class="bg-[#0e0e11] border rounded-xl p-1.5 shadow-2xl flex flex-col gap-0.5 relative overflow-hidden border-white/10">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 blur-2xl"></div>
+                <div class="text-[10px] font-medium text-zinc-500 px-2.5 py-2 uppercase tracking-wider relative z-10">Select Type</div>
+
+                <div class="flex items-center gap-2.5 p-2 rounded-lg border border-white/[0.02] relative z-10 [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0s">
+                  <div class="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-500 flex items-center justify-center text-[11px] font-bold shadow-sm to-purple-600 text-white">F</div>
+                  <span class="text-xs font-medium text-zinc-200">Functional</span>
+                  <i data-lucide="check" class="w-3.5 h-3.5 ml-auto text-white [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" stroke-width="2"></i>
+                </div>
+
+                <div class="flex items-center gap-2.5 p-2 rounded-lg cursor-pointer relative z-10 [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1.5s">
+                  <div class="w-6 h-6 rounded-md border flex items-center justify-center text-[11px] font-bold bg-zinc-800 border-white/10 text-zinc-400">
+                    R
+                  </div>
+                  <span class="text-xs font-medium text-zinc-400">Regression</span>
+                </div>
+
+                <div class="h-px my-1 mx-2 relative z-10 bg-white/5"></div>
+
+                <div class="flex items-center gap-2.5 p-2 hover:bg-white/[0.02] rounded-lg transition-colors cursor-pointer relative z-10 text-zinc-400 hover:text-zinc-200">
+                  <i data-lucide="plus" class="w-4 h-4 ml-1" stroke-width="1.5"></i>
+                  <span class="text-xs font-medium">Add Test Type</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">Testing Types</h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">Functional, regression, smoke, and UI testing across my projects.</p>
+          </div>
+        </div>
+
+        <!-- On-Premise Deployment -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll border-white/5 animate">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Terminal Deployment -->
+            <div class="relative w-[90%] max-w-[280px] bg-[#000] border rounded-xl overflow-hidden shadow-2xl z-10 flex flex-col font-mono border-white/10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 2.5s">
+              <div class="bg-[#18181b] border-b px-3 py-2 flex items-center gap-2 border-white/5">
+                <div class="flex gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                </div>
+                <span class="text-[10px] text-zinc-500 ml-2">niharika@qa-lab:~</span>
+              </div>
+              <div class="p-3.5 flex flex-col gap-2 text-[11px] leading-relaxed bg-gradient-to-b from-transparent to-[#18181b]/30">
+                <div class="flex gap-2 text-zinc-300">
+                  <span class="font-medium text-emerald-400">$</span>
+                  <span>pytest test_records.py</span>
+                </div>
+                <div class="text-zinc-500">Running test cases...</div>
+                <div class="flex items-center gap-2 text-zinc-400">
+                  <span class="font-medium text-emerald-400">[PASS]</span>Add student record</div>
+                <div class="flex items-center gap-2 text-zinc-400">
+                  <span class="font-medium text-emerald-400">[PASS]</span>Delete student record</div>
+                <div class="flex flex-col gap-1.5 mt-1">
+                  <div class="text-zinc-500 flex justify-between">
+                    <span>Tests passed (4/4)</span>
+                    <span class="text-emerald-400">100%</span>
+                  </div>
+                  <div class="w-full h-1 rounded-full overflow-hidden bg-zinc-800">
+                    <div class="h-full rounded-full bg-emerald-400 [animation:lumina-load_3s_ease-in-out_infinite] animate-on-scroll"></div>
+                  </div>
+                </div>
+                <div class="mt-1 flex items-center text-emerald-400">All tests passed<span class="w-1.5 h-3 ml-1 bg-emerald-400 [animation:lumina-blink_1s_steps(2,_start)_infinite] animate-on-scroll"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">Test Results</h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">Running test cases on my Python student record system and checking every result.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard App Preview Section -->
+    <section id="projects" class="relative z-20 container mx-auto px-6 md:px-8 py-24 pointer-events-auto">
+      <div class="flex flex-col items-center justify-center text-center mb-16 relative [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+        <!-- Decorative accents -->
+        <div class="absolute -top-8 -left-4 md:left-12 flex flex-col gap-2 opacity-80">
+          <div class="w-2 h-6 rounded-full rotate-45 origin-bottom-right bg-zinc-400"></div>
+          <div class="w-2 h-4 rounded-full rotate-45 origin-bottom-right ml-4 bg-zinc-400"></div>
+          <div class="w-2 h-3 rounded-full rotate-45 origin-bottom-right ml-8 bg-zinc-400"></div>
+        </div>
+
+        <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-4 font-geist text-white">My QA Dashboard</h2>
+        <p class="text-lg font-normal max-w-2xl text-zinc-400">Test execution summary, bug reports, and the projects I've tested.</p>
+      </div>
+
+      <!-- Dashboard UI Container -->
+      <div class="w-full max-w-[1300px] mx-auto bg-[#0e0e11]/80 backdrop-blur-2xl rounded-[2rem] border shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05),inset_0_-1px_1px_rgba(0,0,0,0.3)] flex flex-col md:flex-row overflow-hidden min-h-[850px] [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate border-white/10">
+        <!-- Sidebar Navigation -->
+        <div class="w-full md:w-24 bg-transparent flex md:flex-col items-center justify-between py-6 px-4 border-b md:border-b-0 md:border-r relative z-10 border-white/5">
+          <div class="flex md:flex-col items-center gap-10 md:gap-12 w-full md:w-auto overflow-x-auto md:overflow-visible no-scrollbar">
+            <!-- Logo -->
+            <a href="#" class="relative w-10 h-10 flex-shrink-0 group">
+              <div class="absolute inset-0 rounded-full opacity-80 group-hover:opacity-100 transition-opacity bg-white/80"></div>
+              <div class="absolute top-1/4 left-1/4 w-full h-full backdrop-blur-sm rounded-full mix-blend-overlay bg-white/20"></div>
+            </a>
+
+            <!-- Nav Icons -->
+            <div class="flex md:flex-col items-center gap-8 text-zinc-500">
+              <button class="transition-colors hover:text-white">
+                <i data-lucide="layout-grid" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+              </button>
+              <button class="transition-colors hover:text-white">
+                <i data-lucide="star" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+              </button>
+              <button class="transition-colors hover:text-white">
+                <i data-lucide="calendar" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+              </button>
+              <button class="transition-colors relative hover:text-white">
+                <i data-lucide="file-text" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+                <span class="absolute top-0 right-0 w-2 h-2 rounded-full border border-[#18181b] shadow-[0_0_10px_rgba(255,255,255,0.5)] bg-white"></span>
+              </button>
+              <button class="transition-colors hover:text-white">
+                <i data-lucide="building-2" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+              </button>
+              <button class="transition-colors hover:text-white">
+                <i data-lucide="user" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Animated Dashboard Primary Action (Sidebar Add) -->
+          <button class="hidden md:flex group relative w-12 h-12 cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[2px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden border rounded-full items-center justify-center flex-shrink-0 mt-8 hover:text-white bg-zinc-900 border-zinc-700/80 text-zinc-300">
+            <span class="relative z-10 flex items-center justify-center rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md">
+              <i data-lucide="plus-circle" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+            </span>
+            <span class="absolute inset-0 z-10 flex items-center justify-center transition-all duration-300 ease-in-out transform -translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none opacity-0 rounded-full blur-md">
+              <i data-lucide="plus-circle" class="w-6 h-6 flex items-center justify-center text-white" stroke-width="1.5"></i>
+            </span>
+            <span aria-hidden="true" class="absolute bottom-0 left-1/2 h-[1px] w-[70%] -translate-x-1/2 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] opacity-0 group-hover:opacity-80 bg-gradient-to-r from-transparent to-transparent rounded-full blur-[2px] via-neutral-200"></span>
+            <span aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[100%] opacity-0 group-hover:opacity-60 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] pointer-events-none bg-gradient-to-t to-transparent rounded-full from-white/20 via-white/10"></span>
+          </button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col lg:flex-row md:p-8 overflow-y-auto dash-scroll pt-6 pr-6 pb-6 pl-6 gap-x-8 gap-y-8">
+          <!-- Left Column (Main Dashboard Core) -->
+          <div class="flex-1 flex flex-col gap-8">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <h2 class="text-2xl md:text-3xl font-medium tracking-tight font-geist text-white">Hi, I'm Niharika!</h2>
+
+              <div class="flex items-center gap-4">
+                <button class="w-10 h-10 rounded-full flex items-center justify-center transition-colors relative border border-transparent hover:bg-white/5 text-zinc-400 hover:border-white/10">
+                  <i data-lucide="bell" class="w-5 h-5 flex items-center justify-center" stroke-width="1.5"></i>
+                  <span class="absolute top-2 right-2.5 w-1.5 h-1.5 shadow-[0_0_10px_rgba(255,255,255,0.5)] rounded-full bg-white"></span>
+                </button>
+                <button class="flex items-center gap-2 border px-4 py-2 rounded-full font-medium text-xs transition-colors bg-white/5 text-zinc-300 border-white/10 hover:bg-white/10 hover:text-white">
+                  <i data-lucide="rotate-ccw" class="w-3 h-3 flex items-center justify-center" stroke-width="1.5"></i>OPEN TO WORK</button>
+                <button class="w-10 h-10 rounded-full bg-[#18181b] border flex items-center justify-center transition-colors border-white/10 text-zinc-400 hover:text-white hover:border-white/20">
+                  <i data-lucide="user" class="w-5 h-5 flex items-center justify-center" stroke-width="1.5"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick Action Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <button class="bg-white/[0.02] border border-white/[0.03] rounded-3xl p-6 flex flex-col items-center justify-center gap-3 hover:bg-white/[0.05] transition-colors group">
+                <div class="w-12 h-12 rounded-full border shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 bg-white/5 border-white/10">
+                  <i data-lucide="list-checks" class="w-5 h-5 flex items-center justify-center group-hover:text-white transition-colors text-zinc-300" stroke-width="1.5"></i>
+                </div>
+                <span class="text-xs font-medium group-hover:text-zinc-200 text-zinc-400">Manual Testing</span>
+              </button>
+
+              <button class="bg-white/[0.02] border border-white/[0.03] rounded-3xl p-6 flex flex-col items-center justify-center gap-3 hover:bg-white/[0.05] transition-colors group">
+                <div class="w-12 h-12 rounded-full border shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 bg-white/5 border-white/10">
+                  <i data-lucide="bug" class="w-5 h-5 flex items-center justify-center group-hover:text-white transition-colors text-zinc-300" stroke-width="1.5"></i>
+                </div>
+                <span class="text-xs font-medium group-hover:text-zinc-200 text-zinc-400">Bug Reporting</span>
+              </button>
+
+              <button class="bg-white/[0.02] border border-white/[0.03] rounded-3xl p-6 flex flex-col items-center justify-center gap-3 hover:bg-white/[0.05] transition-colors group">
+                <div class="w-12 h-12 rounded-full border shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 bg-white/5 border-white/10">
+                  <i data-lucide="file-text" class="w-5 h-5 flex items-center justify-center group-hover:text-white transition-colors text-zinc-300" stroke-width="1.5"></i>
+                </div>
+                <span class="text-xs font-medium group-hover:text-zinc-200 text-zinc-400">Test Cases</span>
+              </button>
+
+              <button class="bg-white/[0.02] border border-white/[0.03] rounded-3xl p-6 flex flex-col items-center justify-center gap-3 hover:bg-white/[0.05] transition-colors group">
+                <div class="w-12 h-12 rounded-full border shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 bg-white/5 border-white/10">
+                  <i data-lucide="database" class="w-5 h-5 flex items-center justify-center group-hover:text-white transition-colors text-zinc-300" stroke-width="1.5"></i>
+                </div>
+                <span class="text-xs font-medium group-hover:text-zinc-200 text-zinc-400">SQL Validation</span>
+              </button>
+            </div>
+
+            <!-- Statistics Grid: sample numbers (120 / 25 / 92%) - replace with your real data -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="flex items-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-2xl p-4 border border-white/[0.02]">
+                <div class="w-14 h-14 rounded-xl bg-[#18181b] border shadow-[0_0_15px_rgba(255,255,255,0.02)] flex items-center justify-center border-white/10 text-zinc-200">
+                  <i data-lucide="arrow-down-left" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-normal text-zinc-400">Test Cases Executed</span>
+                  <span class="text-2xl font-semibold tracking-tight font-geist text-white">120</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-2xl p-4 border border-white/[0.02]">
+                <div class="w-14 h-14 rounded-xl bg-[#18181b] border shadow-[0_0_15px_rgba(255,255,255,0.02)] flex items-center justify-center border-white/10 text-zinc-200">
+                  <i data-lucide="arrow-up-right" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-normal text-zinc-400">Bugs Reported</span>
+                  <span class="text-2xl font-semibold tracking-tight font-geist text-white">25</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-2xl p-4 border border-white/[0.02]">
+                <div class="w-14 h-14 rounded-xl bg-[#18181b] border shadow-[0_0_15px_rgba(255,255,255,0.02)] flex items-center justify-center border-white/10 text-zinc-200">
+                  <i data-lucide="bar-chart-3" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-normal text-zinc-400">Pass Rate</span>
+                  <span class="text-2xl font-semibold tracking-tight font-geist text-white">92%</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-2xl p-4 border border-white/[0.02]">
+                <div class="w-14 h-14 rounded-xl bg-[#18181b] border shadow-[0_0_15px_rgba(255,255,255,0.02)] flex items-center justify-center border-white/10 text-zinc-200">
+                  <i data-lucide="target" class="w-6 h-6 flex items-center justify-center" stroke-width="1.5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-normal text-zinc-400">Projects Tested</span>
+                  <span class="text-2xl font-semibold tracking-tight font-geist text-white">2</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activity Graph & Recent Activity Combined Row -->
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 pt-4">
+              <!-- Recent Activity Table -->
+              <div class="xl:col-span-2 flex flex-col gap-6">
+                <h3 class="text-xl font-medium font-geist text-white">Test Execution Log</h3>
+
+                <!-- Tabs & Filters -->
+                <div class="flex items-center justify-between border-b pb-4 border-white/10">
+                  <div class="flex gap-8">
+                    <button class="text-sm font-medium relative pb-4 -mb-4 border-b-2 text-white border-white">Test Cases</button>
+                    <button class="text-sm font-medium text-zinc-500 pb-4 -mb-4 border-b-2 border-transparent hover:text-zinc-300">Bug Reports</button>
+                  </div>
+
+                  <div class="flex items-center gap-3">
+                    <button class="flex items-center gap-2 border px-4 py-1.5 rounded-lg text-xs font-medium transition-colors bg-white/5 text-zinc-300 border-white/10 hover:bg-white/10">
+                      <i data-lucide="calendar" class="w-3.5 h-3.5 flex items-center justify-center" stroke-width="1.5"></i>Test Cycle 1</button>
+                    <button class="w-8 h-8 rounded-lg border flex items-center justify-center transition-colors bg-white/5 border-white/10 text-zinc-400 hover:text-white hover:bg-white/10">
+                      <i data-lucide="download" class="w-4 h-4 flex items-center justify-center" stroke-width="1.5"></i>
+                    </button>
+
+                    <!-- Animated Dashboard Primary Action (Header Add) -->
+                    <button class="group relative flex w-8 h-8 cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[2px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden border rounded-full items-center justify-center hover:text-white bg-zinc-900 border-zinc-700/80 text-zinc-300">
+                      <span class="relative z-10 flex items-center justify-center rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-6 group-hover:opacity-0 group-hover:blur-md">
+                        <i data-lucide="plus-circle" class="w-4 h-4 flex items-center justify-center" stroke-width="1.5"></i>
+                      </span>
+                      <span class="absolute inset-0 z-10 flex items-center justify-center transition-all duration-300 ease-in-out transform -translate-y-6 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none opacity-0 rounded-full blur-md">
+                        <i data-lucide="plus-circle" class="w-4 h-4 flex items-center justify-center text-white" stroke-width="1.5"></i>
+                      </span>
+                      <span aria-hidden="true" class="absolute bottom-0 left-1/2 h-[1px] w-[70%] -translate-x-1/2 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] opacity-0 group-hover:opacity-80 bg-gradient-to-r from-transparent to-transparent rounded-full blur-[2px] via-neutral-200"></span>
+                      <span aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[100%] opacity-0 group-hover:opacity-60 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] pointer-events-none bg-gradient-to-t to-transparent rounded-full from-white/20 via-white/10"></span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Transaction Table -->
+                <div class="flex flex-col gap-6">
+                  <!-- Date Group 1 -->
+                  <div class="flex flex-col gap-4">
+                    <span class="text-xs font-medium text-zinc-500">Student Record System</span>
+
+                    <div class="flex items-center justify-between group hover:bg-white/[0.04] p-2 -mx-2 rounded-xl transition-colors">
+                      <div class="flex items-center gap-4 w-1/3 min-w-[180px]">
+                        <div class="text-zinc-500">
+                          <i data-lucide="arrow-left-right" class="w-4 h-4 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <div class="flex flex-col">
+                          <span class="text-sm font-medium text-zinc-200">TC-01 · Add student record</span>
+                          <span class="text-xs text-zinc-500">Verify a new record is saved correctly</span>
+                        </div>
+                      </div>
+
+                      <div class="hidden sm:flex items-center gap-2 w-1/3">
+                        <div class="w-6 h-6 rounded border flex items-center justify-center bg-white/5 border-white/10 text-zinc-400">
+                          <i data-lucide="shopping-bag" class="w-3 h-3 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <span class="text-xs text-zinc-400">Functional</span>
+                      </div>
+
+                      <div class="flex items-center justify-end gap-6 w-1/3">
+                        <div class="w-6 h-6 rounded-md border flex items-center justify-center bg-white/5 border-white/5 text-zinc-400">
+                          <i data-lucide="file-text" class="w-3 h-3 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <span class="text-sm font-medium text-zinc-500 w-20 text-right">PASSED</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Date Group 2 -->
+                  <div class="flex flex-col gap-4">
+                    <span class="text-xs font-medium text-zinc-500">Portfolio Website</span>
+
+                    <div class="flex items-center justify-between group hover:bg-white/[0.04] p-2 -mx-2 rounded-xl transition-colors">
+                      <div class="flex items-center gap-4 w-1/3 min-w-[180px]">
+                        <div class="text-zinc-300">
+                          <i data-lucide="download" class="w-4 h-4 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <div class="flex flex-col">
+                          <span class="text-sm font-medium text-zinc-200">TC-07 · Mobile layout check</span>
+                          <span class="text-xs text-zinc-500">Verify layout on small screens</span>
+                        </div>
+                      </div>
+
+                      <div class="hidden sm:flex items-center gap-2 w-1/3">
+                        <div class="w-6 h-6 rounded border flex items-center justify-center bg-white/5 border-white/10 text-zinc-400">
+                          <i data-lucide="pie-chart" class="w-3 h-3 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <span class="text-xs text-zinc-400">Responsive</span>
+                      </div>
+
+                      <div class="flex items-center justify-end gap-6 w-1/3">
+                        <div class="w-6 h-6 rounded-md flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] bg-white/10 text-white">
+                          <i data-lucide="check-check" class="w-3 h-3 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <span class="text-sm font-medium w-20 text-right text-white">PASSED</span>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center justify-between group hover:bg-white/[0.04] p-2 -mx-2 rounded-xl transition-colors">
+                      <div class="flex items-center gap-4 w-1/3 min-w-[180px]">
+                        <div class="text-zinc-500">
+                          <i data-lucide="arrow-up-right" class="w-4 h-4 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <div class="flex flex-col">
+                          <span class="text-sm font-medium text-zinc-200">BUG-03 · Menu overlaps logo</span>
+                          <span class="text-xs text-zinc-500">Seen on narrow screens, now fixed</span>
+                        </div>
+                      </div>
+
+                      <div class="hidden sm:flex items-center gap-2 w-1/3">
+                        <div class="w-6 h-6 rounded border flex items-center justify-center bg-white/5 border-white/10 text-zinc-400">
+                          <i data-lucide="briefcase" class="w-3 h-3 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <span class="text-xs text-zinc-400">UI Defect</span>
+                      </div>
+
+                      <div class="flex items-center justify-end gap-6 w-1/3">
+                        <div class="w-6 h-6 rounded-md border flex items-center justify-center bg-white/5 border-white/5 text-zinc-400">
+                          <i data-lucide="file-text" class="w-3 h-3 flex items-center justify-center" stroke-width="1.5"></i>
+                        </div>
+                        <span class="text-sm font-medium text-zinc-500 w-20 text-right">FIXED</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Activity Graph (Moved & Styled for main column) -->
+              <div class="xl:col-span-1 flex flex-col justify-between gap-4 bg-white/[0.02] p-6 rounded-3xl border border-white/[0.03] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
+                <div class="">
+                  <h4 class="text-sm font-medium mb-2 text-zinc-400">Test Execution</h4>
+                  <span class="text-3xl font-semibold tracking-tight font-geist text-white">92%</span>
+                </div>
+
+                <div class="flex-1 flex flex-col justify-end mt-4">
+                  <div class="flex justify-end mb-2">
+                    <span class="text-xs font-medium uppercase tracking-wider text-zinc-600">Last 10 test runs</span>
+                  </div>
+
+                  <!-- Simple CSS Bar Chart -->
+                  <div class="h-32 w-full flex items-end justify-between gap-1 pb-2 border-b relative mt-auto border-white/5">
+                    <div class="absolute left-0 top-0 bottom-2 flex flex-col justify-between text-xs w-6 text-zinc-600">
+                      <span>100%</span><span>66%</span><span>33%</span><span>0</span>
+                    </div>
+                    <div class="flex-1 flex items-end justify-between gap-1 ml-8 h-full">
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 20%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 35%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 25%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm opacity-50 from-zinc-600/30 to-white/90" style="height: 45%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 60%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm opacity-70 from-zinc-600/30 to-white/90" style="height: 80%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm shadow-[0_0_15px_rgba(255,255,255,0.4)] from-zinc-600/30 to-white/90" style="height: 90%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 100%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm opacity-60 from-zinc-600/30 to-white/90" style="height: 60%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 40%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 30%"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between ml-8 text-xs mt-2 text-zinc-600">
+                    <span>R1</span><span>R2</span><span>R3</span><span>R4</span><span>R5</span><span>R6</span><span>R7</span><span>R8</span><span>R9</span><span>R10</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Sidebar (Profile, Tools, Actions) -->
+        </div>
+      </div>
+    </section>
+    <section id="certifications" class="container md:px-12 z-20 pointer-events-auto mr-auto ml-auto pt-32 pr-6 pb-24 pl-6 relative">
+      <div class="flex flex-col items-center justify-center text-center mb-16 relative [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll animate">
+        <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-4 font-geist text-white">Certifications &amp; Learning</h2>
+        <p class="text-lg font-normal max-w-2xl text-zinc-400">Foundational training that supports my journey into QA and software testing.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto mb-24 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll animate">
+        <!-- Hobby Plan -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-8 hover:bg-white/[0.02] transition-colors relative shadow-[0_20px_40px_rgba(0,0,0,0.3)] border-white/5">
+          <h3 class="text-xl font-medium tracking-tight mb-2 font-geist text-white">SQL Basics</h3>
+          <p class="text-sm mb-6 h-10 text-zinc-400">Foundational SQL for database-related tasks and testing.</p>
+          <div class="mb-6">
+            <span class="text-4xl font-medium tracking-tight font-geist text-white">SQL</span>
+            <span class="text-sm text-zinc-500">HackerRank</span>
+          </div>
+<div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>Basic database concepts</div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>Queries &amp; data retrieval</div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>Filtering structured data</div>
+          </div>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="flex flex-col bg-[#131316] border rounded-3xl p-8 relative shadow-[0_20px_40px_rgba(0,0,0,0.5)] transform md:-translate-y-4 border-white/10">
+          <div class="absolute inset-0 bg-gradient-to-b to-transparent rounded-3xl pointer-events-none from-white/5"></div>
+          <div class="absolute -top-px left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent to-transparent via-zinc-400"></div>
+
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">Manual Testing</h3>
+            <span class="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded-full border bg-white/10 text-zinc-200 border-white/5">Most Relevant</span>
+          </div>
+          <p class="text-sm mb-6 h-10 text-zinc-400">Testing concepts, test cases, and defect reporting.</p>
+          <div class="mb-6">
+            <span class="text-4xl font-medium tracking-tight font-geist text-white">QA</span>
+            <span class="text-sm text-zinc-500">Great Learning</span>
+          </div>
+<div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400" stroke-width="2"></i>Testing concepts</div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400" stroke-width="2"></i>Test cases</div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400" stroke-width="2"></i>Bug identification</div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400" stroke-width="2"></i>Defect reporting</div>
+          </div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-8 hover:bg-white/[0.02] transition-colors relative shadow-[0_20px_40px_rgba(0,0,0,0.3)] border-white/5">
+          <h3 class="text-xl font-medium tracking-tight mb-2 font-geist text-white">AI Awareness</h3>
+          <p class="text-sm mb-6 h-10 text-zinc-400">Core AI concepts and their role in modern technology.</p>
+          <div class="mb-6">
+            <span class="text-4xl font-medium tracking-tight font-geist text-white">AI</span>
+          </div>
+<div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>AI concepts</div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>Real-world applications</div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>AI-driven solutions</div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>IT industry trends</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-5xl mx-auto bg-[#09090b] border rounded-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll relative animate border-white/5">
+        <div class="absolute inset-0 bg-white/[0.02] pointer-events-none"></div>
+        <div class="overflow-x-auto relative z-10">
+          <table class="w-full text-left text-sm whitespace-nowrap">
+            <thead class="">
+              <tr class="border-b bg-white/[0.02] border-white/5">
+                <th class="p-6 font-medium text-base text-white">Certifications Overview</th>
+                <th class="p-6 font-medium w-1/5 text-center text-white">SQL Basics</th>
+                <th class="p-6 font-medium w-1/5 text-center text-white">Manual Testing</th>
+                <th class="p-6 font-medium w-1/5 text-center text-white">AI Awareness</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5">
+              <tr class="">
+                <td colspan="4" class="p-6 pb-2 text-xs font-medium text-zinc-500 uppercase tracking-wider bg-white/[0.01]">Details</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">Provider</td>
+                <td class="px-6 py-4 text-center text-zinc-400">HackerRank</td>
+                <td class="px-6 py-4 text-center text-zinc-400">Great Learning</td>
+                <td class="px-6 py-4 text-center text-zinc-400">TCS iON</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">Level</td>
+                <td class="px-6 py-4 text-center text-zinc-400">Foundational</td>
+                <td class="px-6 py-4 text-center text-zinc-400">Foundational</td>
+                <td class="px-6 py-4 text-center text-zinc-400">Foundational</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">Focus Area</td>
+                <td class="px-6 py-4 text-center text-zinc-400">Databases</td>
+                <td class="px-6 py-4 text-center text-zinc-400">Software Testing</td>
+                <td class="px-6 py-4 text-center text-zinc-400">AI Concepts</td>
+              </tr>
+
+              <tr class="">
+                <td colspan="4" class="p-6 pb-2 pt-8 text-xs font-medium text-zinc-500 uppercase tracking-wider bg-white/[0.01]">Relevance to QA</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors"><td class="px-6 py-4 font-medium text-zinc-300">Test Case Basics</td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i></div></td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i></div></td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i></div></td></tr><tr class="hover:bg-white/[0.02] transition-colors"><td class="px-6 py-4 font-medium text-zinc-300">Bug Reporting</td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i></div></td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i></div></td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i></div></td></tr><tr class="hover:bg-white/[0.02] transition-colors"><td class="px-6 py-4 font-medium text-zinc-300">Database Skills</td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="check" class="w-4 h-4 text-zinc-400"></i></div></td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i></div></td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i></div></td></tr><tr class="hover:bg-white/[0.02] transition-colors"><td class="px-6 py-4 font-medium text-zinc-300">IT Industry Trends</td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i></div></td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i></div></td><td class="px-6 py-4"><div class="flex justify-center"><i data-lucide="check" class="w-4 h-4 text-zinc-400"></i></div></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="container md:px-12 z-20 pointer-events-auto border-white/5 border-t mr-auto ml-auto pt-24 pr-6 pb-24 pl-6 relative">
+      <div class="flex flex-col items-center justify-center text-center mb-16 relative [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+        <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-4 font-geist text-white">Tech &amp; Tools</h2>
+        <p class="text-lg font-normal max-w-2xl text-zinc-400">Tools and technologies I use for testing and development.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <i data-lucide="terminal" class="w-10 h-10" stroke-width="1.5"></i>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <i data-lucide="file-code" class="w-10 h-10" stroke-width="1.5"></i>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <i data-lucide="palette" class="w-10 h-10 text-white" stroke-width="1.5"></i>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <i data-lucide="braces" class="w-10 h-10" stroke-width="1.5"></i>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <i data-lucide="database" class="w-10 h-10 text-white" stroke-width="1.5"></i>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <i data-lucide="clipboard-check" class="w-10 h-10 text-white" stroke-width="1.5"></i>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <i data-lucide="bug" class="w-10 h-10" stroke-width="1.5"></i>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <i data-lucide="file-text" class="w-10 h-10" stroke-width="1.5"></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="container md:px-12 z-20 pointer-events-auto border-white/5 border-t mr-auto ml-auto pt-24 pr-6 pb-24 pl-6 relative">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6 [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+    <div class="flex flex-col gap-3">
+      <span class="text-xs font-medium text-zinc-500 uppercase tracking-widest">About Me</span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight font-geist text-white max-w-3xl">Passionate about software quality</h2>
+    </div>
+    <div class="flex gap-3 gap-x-3 gap-y-3">
+  <button class="transition-all flex bg-zinc-900 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] items-center justify-center w-12 h-12 hover:bg-zinc-800 hover:text-white" style="box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.1); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+  </button>
+  <button class="transition-all flex bg-zinc-900 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] items-center justify-center w-12 h-12 hover:bg-zinc-800 hover:text-white" style="box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.1); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+  </button>
+  <style id="border-gradient-shared-style">
+  [style*="--border-gradient"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: var(--border-radius-before, inherit);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    background: var(--border-gradient);
+    pointer-events: none;
+  }</style>
+</div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row sm:items-center [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll mb-16 gap-x-4 gap-y-4">
+    <div class="flex items-center gap-1.5">
+      <i data-lucide="graduation-cap" class="w-6 h-6 text-emerald-500"></i>
+      <span class="text-xl font-medium tracking-tight text-white">GLA University</span>
+    </div>
+    
+    <div class="text-sm font-medium text-zinc-400 sm:ml-2">
+      <span class="text-zinc-200">Bachelor of Computer Applications</span> <span class="hidden sm:inline">·</span> <span class="block sm:inline">2023 – 2027</span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll">
+    <div class="flex flex-col">
+      <div class="flex items-baseline gap-2 mb-2">
+        <span class="lg:text-8xl leading-none text-7xl font-medium text-gray-50 tracking-tight font-geist" style="mask-image: linear-gradient(180deg, transparent, black 50%, black 60%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 50%, black 60%, transparent);">3</span>
+        <span class="text-2xl text-zinc-300 font-medium tracking-tight">certs</span>
+      </div>
+      <p class="text-lg text-zinc-400 mb-8 font-medium">Foundational certifications completed</p>
+      
+      <p class="text-xl lg:text-2xl leading-relaxed font-normal text-zinc-200 mb-10 tracking-tight">I'm a detail-oriented QA / testing intern and BCA student who enjoys finding bugs before users do. I write clear test cases, report defects with steps to reproduce, and validate data with SQL. I'm looking for an internship where I can grow inside a real QA team.</p>
+
+      <div class="">
+        <button onclick="location.href='mailto:niharika.gla_bca24@gla.ac.in'" class="px-8 py-3.5 rounded-full border bg-transparent text-base font-normal transition-colors border-zinc-700/80 text-zinc-300 hover:bg-zinc-800/50 hover:text-white inline-flex items-center justify-center min-w-[160px]">Contact Me</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 h-[400px] md:h-[500px] lg:h-[600px]">
+      <div class="relative w-full h-full rounded-3xl overflow-hidden bg-[#0e0e11] border border-white/10 group">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/91a69d34-7bfd-4a15-802d-67ddeff8c160_800w.webp" alt="BCA 2023" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
+          <span class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium text-white border border-white/10">2023</span>
+        </div>
+      </div>
+      
+      <div class="relative w-full h-full rounded-3xl overflow-hidden bg-[#0e0e11] border border-white/10 group">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e2b6bfe8-29b7-48cb-9aa6-a44e21613618_800w.webp" alt="Graduating 2027" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
+          <span class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium text-white border border-white/10">2027</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section id="contact" class="container md:px-12 z-20 pointer-events-auto mr-auto ml-auto pt-24 pr-6 pb-32 pl-6 relative border-t border-white/5">
+      <div class="flex flex-col items-center justify-center text-center p-12 md:p-20 bg-gradient-to-b from-[#131316] to-[#0e0e11] border border-white/10 rounded-[3rem] relative overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.5)] [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none"></div>
+        <h2 class="text-4xl md:text-6xl font-medium tracking-tight mb-6 font-geist text-white relative z-10">Looking for a QA / Testing Intern?</h2>
+        <p class="text-lg font-normal max-w-2xl text-zinc-400 mb-10 relative z-10">Let's connect. I'm eager to learn, contribute, and grow in an IT team.</p>
+        <div class="flex flex-wrap justify-center gap-4 relative z-10">
+          <button onclick="location.href='mailto:niharika.gla_bca24@gla.ac.in'" class="px-8 py-3.5 rounded-full text-sm font-medium transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)] bg-white text-black hover:bg-zinc-200">Email Me</button>
+          <button onclick="location.href='tel:+916398508305'" class="px-8 py-3.5 rounded-full border bg-transparent text-sm font-medium transition-colors border-zinc-800 text-zinc-300 hover:bg-zinc-800/50 hover:text-white">Call Me</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/5 bg-[#09090b] pt-16 pb-8 px-6 md:px-12 relative z-20">
+      <div class="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+        <div class="col-span-2 flex flex-col gap-4 pr-8">
+          <a href="#" class="flex items-center gap-2.5 text-xl tracking-tight font-medium font-geist text-white">
+            <i data-lucide="play" class="rotate-90 w-5 h-5 flex items-center justify-center text-white" stroke-width="1.5" fill="currentColor"></i>Niharika Singh</a>
+          <p class="text-sm text-zinc-500 max-w-xs mt-2">QA / Testing Intern and BCA student. Detail-oriented, eager to learn, and focused on reliable software.</p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-sm font-medium text-white">Portfolio</h4>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">About Me</a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Tech Stack</a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Certifications</a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Education</a>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-sm font-medium text-white">Skills</h4>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Manual Testing
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Bug Reporting</a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Test Cases</a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Basic SQL</a>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-sm font-medium text-white">Contact</h4>
+          <a href="mailto:niharika.gla_bca24@gla.ac.in" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Email Me</a>
+          <a href="tel:+916398508305" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Call Me</a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">GLA University</a>
+          <a href="#contact" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Open to Internships
+          </a>
+        </div>
+      </div>
+      <div class="container mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-zinc-600">
+          © 2026 Niharika Singh. All rights reserved.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="mailto:niharika.gla_bca24@gla.ac.in" class="text-zinc-600 hover:text-zinc-400 transition-colors">
+            <i data-lucide="mail" class="w-5 h-5" stroke-width="1.5"></i>
+          </a>
+          <a href="tel:+916398508305" class="text-zinc-600 hover:text-zinc-400 transition-colors">
+            <i data-lucide="phone" class="w-5 h-5" stroke-width="1.5"></i>
+          </a>
+          <a href="#" class="text-zinc-600 hover:text-zinc-400 transition-colors">
+            <i data-lucide="linkedin" class="w-5 h-5" stroke-width="1.5"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  
+<script>
+(function(){
+var ICONS={"check": "<path d=\"M20 6 9 17l-5-5\"/>", "minus": "<path d=\"M5 12h14\"/>", "plus": "<path d=\"M5 12h14\"/><path d=\"M12 5v14\"/>", "x": "<path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/>", "check-circle-2": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"m9 12 2 2 4-4\"/>", "plus-circle": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M8 12h8\"/><path d=\"M12 8v8\"/>", "chevron-down": "<path d=\"m6 9 6 6 6-6\"/>", "chevron-left": "<path d=\"m15 18-6-6 6-6\"/>", "chevron-right": "<path d=\"m9 18 6-6-6-6\"/>", "chevrons-up-down": "<path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/>", "arrow-right": "<path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/>", "arrow-up-right": "<path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/>", "arrow-down-left": "<path d=\"M17 7 7 17\"/><path d=\"M17 17H7V7\"/>", "arrow-left-right": "<path d=\"M8 3 4 7l4 4\"/><path d=\"M4 7h16\"/><path d=\"m16 21 4-4-4-4\"/><path d=\"M20 17H4\"/>", "bell": "<path d=\"M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9\"/><path d=\"M10.3 21a1.94 1.94 0 0 0 3.4 0\"/>", "user": "<path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/>", "calendar": "<path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M3 10h18\"/>", "download": "<path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><polyline points=\"7 10 12 15 17 10\"/><line x1=\"12\" x2=\"12\" y1=\"15\" y2=\"3\"/>", "rotate-ccw": "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"/><path d=\"M3 3v5h5\"/>", "layout-grid": "<rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\"/>", "star": "<polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/>", "building-2": "<path d=\"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z\"/><path d=\"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2\"/><path d=\"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2\"/><path d=\"M10 6h4\"/><path d=\"M10 10h4\"/><path d=\"M10 14h4\"/><path d=\"M10 18h4\"/>", "building": "<rect width=\"16\" height=\"20\" x=\"4\" y=\"2\" rx=\"2\" ry=\"2\"/><path d=\"M9 22v-4h6v4\"/><path d=\"M8 6h.01\"/><path d=\"M16 6h.01\"/><path d=\"M12 6h.01\"/><path d=\"M12 10h.01\"/><path d=\"M12 14h.01\"/><path d=\"M16 10h.01\"/><path d=\"M16 14h.01\"/><path d=\"M8 10h.01\"/><path d=\"M8 14h.01\"/>", "file-text": "<path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"/><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"/><path d=\"M10 9H8\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/>", "file-code": "<path d=\"M10 12.5 8 15l2 2.5\"/><path d=\"m14 12.5 2 2.5-2 2.5\"/><path d=\"M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z\"/><path d=\"M14 2v6h6\"/>", "list-checks": "<path d=\"m3 17 2 2 4-4\"/><path d=\"m3 7 2 2 4-4\"/><path d=\"M13 6h8\"/><path d=\"M13 12h8\"/><path d=\"M13 18h8\"/>", "bug": "<path d=\"m8 2 1.88 1.88\"/><path d=\"M14.12 3.88 16 2\"/><path d=\"M9 7.13v-1a3.003 3.003 0 1 1 6 0v1\"/><path d=\"M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6\"/><path d=\"M12 20v-9\"/><path d=\"M6.53 9C4.6 8.8 3 7.1 3 5\"/><path d=\"M6 13H2\"/><path d=\"M3 21c0-2.1 1.7-3.9 3.8-4\"/><path d=\"M20.97 5c0 2.1-1.6 3.8-3.5 4\"/><path d=\"M22 13h-4\"/><path d=\"M17.2 17c2.1.1 3.8 1.9 3.8 4\"/>", "database": "<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M3 5V19A9 3 0 0 0 21 19V5\"/><path d=\"M3 12A9 3 0 0 0 21 12\"/>", "code": "<polyline points=\"16 18 22 12 16 6\"/><polyline points=\"8 6 2 12 8 18\"/>", "bar-chart-3": "<path d=\"M3 3v18h18\"/><path d=\"M18 17V9\"/><path d=\"M13 17V5\"/><path d=\"M8 17v-3\"/>", "target": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"6\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/>", "check-check": "<path d=\"M18 6 7 17l-5-5\"/><path d=\"m22 10-7.5 7.5L13 16\"/>", "shopping-bag": "<path d=\"M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z\"/><path d=\"M3 6h18\"/><path d=\"M16 10a4 4 0 0 1-8 0\"/>", "briefcase": "<rect width=\"20\" height=\"14\" x=\"2\" y=\"7\" rx=\"2\" ry=\"2\"/><path d=\"M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"/>", "pie-chart": "<path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"/><path d=\"M22 12A10 10 0 0 0 12 2v10z\"/>", "play": "<polygon points=\"6 3 20 12 6 21 6 3\"/>", "terminal": "<polyline points=\"4 17 10 11 4 5\"/><line x1=\"12\" x2=\"20\" y1=\"19\" y2=\"19\"/>", "palette": "<circle cx=\"13.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\"/><circle cx=\"17.5\" cy=\"10.5\" r=\".5\" fill=\"currentColor\"/><circle cx=\"8.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\"/><circle cx=\"6.5\" cy=\"12.5\" r=\".5\" fill=\"currentColor\"/><path d=\"M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z\"/>", "braces": "<path d=\"M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1\"/><path d=\"M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1\"/>", "clipboard-check": "<rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\"/><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/><path d=\"m9 14 2 2 4-4\"/>", "mail": "<rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/>", "phone": "<path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/>", "linkedin": "<path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z\"/><rect width=\"4\" height=\"12\" x=\"2\" y=\"9\"/><circle cx=\"4\" cy=\"4\" r=\"2\"/>", "graduation-cap": "<path d=\"M22 10v6M2 10l10-5 10 5-10 5z\"/><path d=\"M6 12v5c3 3 9 3 12 0v-5\"/>", "shield-check": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/><path d=\"m9 12 2 2 4-4\"/>", "shield": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/>", "loader-2": "<path d=\"M21 12a9 9 0 1 1-6.219-8.56\"/>", "globe": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\"/><path d=\"M2 12h20\"/>", "credit-card": "<rect width=\"20\" height=\"14\" x=\"2\" y=\"5\" rx=\"2\"/><line x1=\"2\" x2=\"22\" y1=\"10\" y2=\"10\"/>", "edit-2": "<path d=\"M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z\"/>"};
+document.querySelectorAll('i[data-lucide]').forEach(function(el){
+  var d=ICONS[el.getAttribute('data-lucide')]; if(!d) return;
+  var ns='http://www.w3.org/2000/svg', svg=document.createElementNS(ns,'svg');
+  var base={xmlns:ns,width:24,height:24,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor','stroke-width':2,'stroke-linecap':'round','stroke-linejoin':'round'};
+  for(var k in base) svg.setAttribute(k,base[k]);
+  Array.prototype.forEach.call(el.attributes,function(a){ if(a.name!=='data-lucide') svg.setAttribute(a.name,a.value); });
+  svg.innerHTML=d; el.parentNode.replaceChild(svg,el);
+});
+})();
+</script>
+</body></html>
