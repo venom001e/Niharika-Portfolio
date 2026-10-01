@@ -141,10 +141,8 @@ scrollbar-width: none;
       </nav>
 
       <div class="hidden md:flex items-center gap-6">
-        <a href="#" class="text-base font-normal transition-colors px-4 py-2 backdrop-blur-sm border rounded-full text-zinc-300 hover:text-white bg-black/50 border-zinc-700/50">Contact</a>
-
         <!-- Animated Hover CTA Nav -->
-        <button class="group relative inline-flex min-w-[120px] cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[2px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden font-normal tracking-tight bg-[#09090b]/80 backdrop-blur-md border rounded-full px-5 py-2.5 items-center justify-center text-sm hover:text-white text-zinc-300 border-zinc-700/80">
+        <button data-hire-me type="button" class="group relative inline-flex min-w-[120px] cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[2px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden font-normal tracking-tight bg-[#09090b]/80 backdrop-blur-md border rounded-full px-5 py-2.5 items-center justify-center text-sm hover:text-white text-zinc-300 border-zinc-700/80">
           <!-- Original text (slides down on hover) -->
           <span class="relative z-10 flex items-center gap-2 rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md">Hire Me<i data-lucide="arrow-right" class="w-4 h-4 flex items-center justify-center" stroke-width="1.5"></i>
           </span>
@@ -171,7 +169,7 @@ scrollbar-width: none;
 
           <div class="flex flex-wrap items-center gap-4 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll animate">
             <!-- Animated Hover CTA Hero -->
-            <button class="group relative inline-flex min-w-[120px] cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[3px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden font-normal tracking-tight border rounded-full px-8 py-3.5 items-center justify-center text-lg hover:text-white text-zinc-300 bg-zinc-900 border-zinc-700/80">
+            <button data-hire-me type="button" class="group relative inline-flex min-w-[120px] cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[3px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden font-normal tracking-tight border rounded-full px-8 py-3.5 items-center justify-center text-lg hover:text-white text-zinc-300 bg-zinc-900 border-zinc-700/80">
               <!-- Original text (slides down on hover) -->
               <span class="relative z-10 flex items-center gap-2 rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md">Hire Me<i data-lucide="arrow-right" class="w-5 h-5 flex items-center justify-center" stroke-width="1.5"></i>
               </span>
@@ -1221,6 +1219,19 @@ document.querySelectorAll('i[data-lucide]').forEach(function(el){
   Array.prototype.forEach.call(el.attributes,function(a){ if(a.name!=='data-lucide') svg.setAttribute(a.name,a.value); });
   svg.innerHTML=d; el.parentNode.replaceChild(svg,el);
 });
+})();
+</script>
+<script>
+(function () {
+  var PHONE = "916398508305";
+  var TEXT = "Hi Niharika! I visited your portfolio and I'd like to hire you for a QA / Testing role. Let's discuss the details.";
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest("[data-hire-me]");
+    if (!btn) return;
+    e.preventDefault();
+    var url = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(TEXT);
+    window.open(url, "_blank", "noopener");
+  });
 })();
 </script>
 </body></html>
